@@ -1,73 +1,16 @@
-
-/// Checks if the given string is empty.
-///
-/// # Arguments
-///
-/// * `str` - A `String` to check for emptiness.
-///
-/// # Returns
-///
-/// * `true` if the string is empty, otherwise `false`.
-pub fn is_empty(str: String) -> bool {
-    str.is_empty()
+pub mod utils {
+    pub mod is_empty;
+    pub mod is_blank;
+    pub mod reverse;
+    pub mod start_with;
+    pub mod join_char;
 }
 
-/// Checks if the given string is blank (contains only whitespace characters).
-///
-/// # Arguments
-///
-/// * `str` - A `String` to check for blankness.
-///
-/// # Returns
-///
-/// * `true` if the string is blank, otherwise `false`.
-pub fn is_blank(str: String) -> bool {
-    str.trim().is_empty()
-}
-
-/// Reverses the characters in the given string.
-///
-/// # Arguments
-///
-/// * `str` - A `String` to be reversed.
-///
-/// # Returns
-///
-/// * A new `String` with the characters in reverse order.
-pub fn reverse(str: String) -> String {
-    str.chars().rev().collect()
-}
-
-/// Checks if the given string starts with the specified prefix.
-///
-/// # Arguments
-///
-/// * `str` - A `String` to check for the prefix.
-/// * `prefix` - A `String` representing the prefix to check for.
-///
-/// # Returns
-///
-/// * `true` if the string starts with the prefix, otherwise `false`.
-pub fn start_with(str: String, prefix: String) -> bool {
-    str.starts_with(&prefix)
-}
-
-/// Joins a vector of characters into a single string, separated by a delimiter.
-///
-/// # Arguments
-///
-/// * `arr` - A `Vec<char>` containing the characters to join.
-/// * `delimiter` - A `char` used to separate the characters in the resulting string.
-///
-/// # Returns
-///
-/// * A `String` with the characters joined by the delimiter.
-pub fn join_char(arr: Vec<char>, delimiter: char) -> String {
-    arr.iter()
-        .map(|&c| c.to_string())
-        .collect::<Vec<String>>()
-        .join(&delimiter.to_string())
-}
+pub use utils::is_empty::is_empty;
+pub use utils::is_blank::is_blank;
+pub use utils::reverse::reverse;
+pub use utils::start_with::start_with;
+pub use utils::join_char::join_char;
 
 #[cfg(test)]
 mod tests {
