@@ -4,4 +4,4 @@ version = 3
 
 [[package]]
 name = "rust_string_utils"
-version = "0.1.4"
+version = "0.1.6"

@@ -1,7 +1,10 @@
 [package]
 name = "rust_string_utils"
-version = "0.1.5"
+version = "0.1.6"
 edition = "2021"
 description = "String utilities for rust based on org.apache.commons.lang3"
 license = "MIT OR Apache-2.0"
+readme = "README.md"
+homepage = "https://github.com/doanthaibao/rust_string_utils"
+repository = "https://github.com/doanthaibao/rust_string_utils"
 [dependencies]
