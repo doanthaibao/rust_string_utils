@@ -1,9 +1,12 @@
 
-#Rust String Utilities
+# Rust String Utilities
 
 ## Description
 
 `rust_string_utils` is a Rust library providing various utility functions for string manipulation.
+
+## Repository
+[GitHub Repository](https://github.com/doanthaibao/rust_string_utils)
 
 ## Installation
 
