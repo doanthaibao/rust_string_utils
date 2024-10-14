@@ -22,3 +22,16 @@ pub fn replace_chars(text: String, search_char: char, replacement: char) -> Stri
         .map(|c| if c == search_char { replacement } else { c })
         .collect()
 }
+
+
+#[cfg(test)]
+mod tests {
+    use crate::replace_chars;
+    #[test]
+    fn should_replace_chars() {
+        let result = replace_chars(String::from("abcdef"), 'a', 'z');
+        assert_eq!("zbcdef", result);
+        let result2 = replace_chars(String::from("aba"), 'a', 'z');
+        assert_eq!("zbz", result2);
+    }
+}

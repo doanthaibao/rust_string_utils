@@ -14,3 +14,16 @@ pub fn join_char(arr: Vec<char>, delimiter: char) -> String {
         .collect::<Vec<String>>()
         .join(&delimiter.to_string())
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::join_char;
+
+    #[test]
+    fn should_join_char() {
+        let result = join_char(vec!['a', 'b', 'c'], ',');
+        assert_eq!("a,b,c", result);
+        let result = join_char(vec!['a'], ',');
+        assert_eq!("a", result);
+    }
+}

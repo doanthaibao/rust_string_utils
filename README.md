@@ -83,6 +83,12 @@ assert_eq!(result, "hellO wOrld");
 let count = count_matches(String::from("hello world"), 'o');
 assert_eq!(count, 2);
 ```
+
+### Triple a string
+```rust
+let result = trip(String::from("a b c "));
+assert_eq!("abc", result);
+```
 ## License
 
 This project is licensed under either of

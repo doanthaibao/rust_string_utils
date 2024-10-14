@@ -1,4 +1,3 @@
-mod test;
 
 pub mod utils {
     pub mod is_empty;
@@ -9,6 +8,7 @@ pub mod utils {
     pub mod replace;
     pub mod replace_chars;
     pub mod count_matches;
+    pub mod trip;
 }
 
 pub use utils::is_empty::is_empty;
@@ -19,4 +19,5 @@ pub use utils::join_char::join_char;
 pub use utils::replace::replace;
 pub use utils::replace_chars::replace_chars;
 pub use utils::count_matches::count_matches;
+pub use utils::trip::trip;
 

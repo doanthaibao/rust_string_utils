@@ -1,4 +1,3 @@
-
 /// Replaces all occurrences of a search string within a given text with a replacement string.
 ///
 /// # Arguments
@@ -19,5 +18,17 @@
 /// assert_eq!(result, "hello Rust");
 /// ```
 pub fn replace(text: String, search_string: String, replacement: String) -> String {
-  text.replace(search_string.as_str(), replacement.as_str())
+    text.replace(search_string.as_str(), replacement.as_str())
+}
+
+#[cfg(test)]
+mod tests {
+    use crate::replace;
+    #[test]
+    fn should_replace_string() {
+        let result = replace(String::from("abcdef"), String::from("a"), String::from(""));
+        assert_eq!("bcdef", result);
+        let result2 = replace(String::from("aba"), String::from("a"), String::from("z"));
+        assert_eq!("zbz", result2)
+    }
 }
