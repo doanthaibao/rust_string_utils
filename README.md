@@ -14,7 +14,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.6"
+rust_string_utils = "0.1.7"
 ```
 
 ## Usage
@@ -66,6 +66,23 @@ let result = join_char(vec!['a', 'b', 'c'], ',');
 assert_eq!("a,b,c", result);
 ```
 
+### Replace a string in a string
+```rust
+let result = replace(String::from("hello world"), String::from("world"), String::from("Rust"));
+assert_eq!(result, "hello Rust");
+```
+
+### Replace a character in a string
+```rust
+let result = replace_char(String::from("hello world"), 'o', 'O');
+assert_eq!(result, "hellO wOrld");
+```
+
+### Count the number of occurrences of a character in a string
+```rust
+let count = count_matches(String::from("hello world"), 'o');
+assert_eq!(count, 2);
+```
 ## License
 
 This project is licensed under either of
