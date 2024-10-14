@@ -89,6 +89,13 @@ assert_eq!(count, 2);
 let result = trip(String::from("a b c "));
 assert_eq!("abc", result);
 ```
+
+### Swap case of a string
+```rust
+let result = swap_case(String::from("Hello World"));
+assert_eq!("hELLO wORLD", result);
+```
+
 ## License
 
 This project is licensed under either of
