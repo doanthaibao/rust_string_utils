@@ -9,6 +9,7 @@ pub mod utils {
     pub mod replace_chars;
     pub mod count_matches;
     pub mod trip;
+    pub mod swap_case;
 }
 
 pub use utils::is_empty::is_empty;
@@ -20,4 +21,5 @@ pub use utils::replace::replace;
 pub use utils::replace_chars::replace_chars;
 pub use utils::count_matches::count_matches;
 pub use utils::trip::trip;
+pub use utils::swap_case::swap_case;
 
