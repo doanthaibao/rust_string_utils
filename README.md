@@ -14,7 +14,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.7"
+rust_string_utils = "0.1.9"
 ```
 
 ## Usage
@@ -95,7 +95,17 @@ assert_eq!("abc", result);
 let result = swap_case(String::from("Hello World"));
 assert_eq!("hELLO wORLD", result);
 ```
-
+### Convert a timestamp to a human-readable date
+```rust
+let formatted_date = timestamp_to_string(1618033988000, "%Y-%m-%d %H:%M:%S");
+assert_eq!(formatted_date, "2021-04-10 05:53:08");
+```
+### Convert a byte array to string
+```rust
+let bytes = vec![104, 101, 108, 108, 111];
+let result = bytes_to_string(bytes);
+assert_eq!(result, "hello");
+```
 ## License
 
 This project is licensed under either of
