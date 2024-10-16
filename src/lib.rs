@@ -13,6 +13,7 @@ pub mod utils {
     pub mod byte_array_to_string;
     pub mod timestamp_to_string;
     pub mod rotate;
+    pub mod compare;
 }
 
 pub use utils::is_empty::is_empty;
@@ -30,4 +31,6 @@ pub use utils::timestamp_to_string::timestamp_to_string;
 pub use utils::rotate::rotate;
 pub use utils::rotate::split;
 pub use utils::rotate::split_with_separator;
+pub use utils::compare::compare;
+pub use utils::compare::compare_ignore_case;
 

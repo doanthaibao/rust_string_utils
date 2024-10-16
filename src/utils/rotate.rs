@@ -41,7 +41,7 @@ pub fn rotate(s: &str, shift: i32) -> String {
 /// let result = rotate("abcdefg", 2);
 /// assert_eq!(result, "fgabcde");
 /// ```
-pub fn split(s: &str) -> Vec<String> {
+pub fn split(s: String) -> Vec<String> {
     s.split_whitespace().map(|s| s.to_string()).collect()
 }
 
@@ -82,9 +82,9 @@ mod tests {
 
     #[test]
     fn test_split() {
-        assert_eq!(split("abc def"), vec!["abc", "def"]);
-        assert_eq!(split("abc  def"), vec!["abc", "def"]);
-        assert_eq!(split(" abc "), vec!["abc"]);
+        assert_eq!(split("abc def".to_string()), vec!["abc", "def"]);
+        assert_eq!(split("abc  def".to_string()), vec!["abc", "def"]);
+        assert_eq!(split(" abc ".to_string()), vec!["abc"]);
     }
 
     #[test]

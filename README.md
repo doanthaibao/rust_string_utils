@@ -131,6 +131,22 @@ let result = split_with_separator("abc,def".to_string(), ",".to_string());
 assert_eq!(result, vec!["abc", "def"]);
 ```
 
+### Compare two strings lexicographically
+
+```rust
+use rust_string_utils::compare;
+
+let result = compare("abc".to_string(), "abc".to_string());
+assert_eq!(result, 0);
+```
+### Compare two strings lexicographically, ignoring case differences
+```rust
+use rust_string_utils::compare_ignore_case;
+
+let result = compare_ignore_case("abc".to_string(), "Abc".to_string());
+assert_eq!(result, 0);
+```
+
 ## License
 
 This project is licensed under either of

@@ -17,8 +17,8 @@
 ///
 /// ```
 /// use rust_string_utils::timestamp_to_string;
-/// let formatted_date = timestamp_to_string(1618033988000, "%Y-%m-%d %H:%M:%S");
-/// assert_eq!(formatted_date, "2021-04-10 05:53:08");
+/// let formatted_date = timestamp_to_string(1618033988000, "%Y-%m-%d %H:%M:%S".to_string());
+/// assert_eq!(formatted_date, "2021-04-10 05:53:08".to_string());
 /// ```
 pub fn byte_array_to_string(byte_array: &[u8]) -> String {
     byte_array.iter().map(|&c| c as char).collect()
