@@ -14,7 +14,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.9"
+rust_string_utils = "0.1.10"
 ```
 
 ## Usage
@@ -106,6 +106,31 @@ let bytes = vec![104, 101, 108, 108, 111];
 let result = bytes_to_string(bytes);
 assert_eq!(result, "hello");
 ```
+### Rotate characters in a string
+
+```rust
+use rust_string_utils::rotate;
+
+let result = rotate("abcdefg", 2);
+assert_eq!(result, "fgabcde");
+```
+### Split a string by whitespace
+```rust
+use rust_string_utils::split;
+
+let result = split("abc def");
+assert_eq!(result, vec!["abc", "def"]);
+```
+
+### Split a string by specified separator characters
+
+```rust
+use rust_string_utils::split_with_separator;
+
+let result = split_with_separator("abc,def".to_string(), ",".to_string());
+assert_eq!(result, vec!["abc", "def"]);
+```
+
 ## License
 
 This project is licensed under either of

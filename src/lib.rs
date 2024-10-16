@@ -12,6 +12,7 @@ pub mod utils {
     pub mod swap_case;
     pub mod byte_array_to_string;
     pub mod timestamp_to_string;
+    pub mod rotate;
 }
 
 pub use utils::is_empty::is_empty;
@@ -26,4 +27,7 @@ pub use utils::trip::trip;
 pub use utils::swap_case::swap_case;
 pub use utils::byte_array_to_string::byte_array_to_string;
 pub use utils::timestamp_to_string::timestamp_to_string;
+pub use utils::rotate::rotate;
+pub use utils::rotate::split;
+pub use utils::rotate::split_with_separator;
 
