@@ -14,12 +14,16 @@ pub mod utils {
     pub mod timestamp_to_string;
     pub mod rotate;
     pub mod compare;
+    pub mod overlay;
+    pub mod equals;
+    pub mod index;
 }
 
 pub use utils::is_empty::is_empty;
 pub use utils::is_blank::is_blank;
 pub use utils::reverse::reverse;
 pub use utils::start_with::start_with;
+pub use utils::start_with::end_with;
 pub use utils::join_char::join_char;
 pub use utils::replace::replace;
 pub use utils::replace_chars::replace_chars;
@@ -33,4 +37,8 @@ pub use utils::rotate::split;
 pub use utils::rotate::split_with_separator;
 pub use utils::compare::compare;
 pub use utils::compare::compare_ignore_case;
-
+pub use utils::overlay::overlay;
+pub use utils::equals::equals;
+pub use utils::index::index_of;
+pub use utils::index::last_index_of;
+pub use utils::index::index_of_from;

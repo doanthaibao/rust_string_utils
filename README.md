@@ -8,13 +8,16 @@
 ## Repository
 [GitHub Repository](https://github.com/doanthaibao/rust_string_utils)
 
+## Crates.io
+[https://crates.io/crates/rust_string_utils](https://crates.io/crates/rust_string_utils)
+
 ## Installation
 
 Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.10"
+rust_string_utils = "0.1.11"
 ```
 
 ## Usage
@@ -55,6 +58,14 @@ use rust_string_utils::start_with;
 
 let result = start_with(String::from("abcde"), String::from("a"));
 assert_eq!(true, result);
+```
+
+### Checks if the given string ends with the specified suffix.
+```rust
+use your_crate::end_with;
+
+let result = end_with("abcde".to_string(), "e".to_string());
+assert_eq!(result, true);
 ```
 
 ### Join characters with a delimiter
@@ -147,6 +158,48 @@ let result = compare_ignore_case("abc".to_string(), "Abc".to_string());
 assert_eq!(result, 0);
 ```
 
+### Compares two strings for equality.
+
+```rust
+use your_crate::equals;
+
+let result = equals("hello".to_string(), "hello".to_string());
+assert_eq!(result, true);
+```
+### Compares two strings for equality, ignoring case.
+```rust
+use your_crate::equals_ignore_case;
+
+let result = equals_ignore_case("Hello".to_string(), "hello".to_string());
+assert_eq!(result, true);
+```
+### Finds the index of the first occurrence of the specified substring.
+```rust
+use your_crate::index_of;
+let index = index_of("hello".to_string(), "l".to_string());
+assert_eq!(index, 2);
+```
+### Finds the index of the first occurrence of the specified substring starting from a given index.
+```rust
+use your_crate::index_of_from;
+
+let index = index_of_from("hello".to_string(), "l".to_string(), 3);
+assert_eq!(index, 3);
+```
+### Finds the index of the last occurrence of the specified substring.
+```rust
+use your_crate::last_index_of;
+
+let index = last_index_of("hello".to_string(), "l".to_string());
+assert_eq!(index, 3);
+```
+### Overlays part of a string with another string
+
+```rust
+use rust_string_utils::overlay;
+let result = overlay("abcdef".to_string(), "zzzz".to_string(), 2, 4);
+assert_eq!(result, "abzzzzef");
+```
 ## License
 
 This project is licensed under either of
