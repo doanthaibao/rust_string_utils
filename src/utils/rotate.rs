@@ -41,7 +41,7 @@ pub fn rotate(s: &str, shift: i32) -> String {
 /// let result = rotate("abcdefg", 2);
 /// assert_eq!(result, "fgabcde");
 /// ```
-pub fn split(s: String) -> Vec<String> {
+pub fn split(s: &String) -> Vec<String> {
     s.split_whitespace().map(|s| s.to_string()).collect()
 }
 
@@ -60,10 +60,10 @@ pub fn split(s: String) -> Vec<String> {
 ///
 /// ```
 /// use rust_string_utils::split_with_separator;
-/// let result = split_with_separator("abc,def".to_string(), ",".to_string());
+/// let result = split_with_separator(&"abc,def".to_string(), ",".to_string());
 /// assert_eq!(result, vec!["abc", "def"]);
 /// ```
-pub fn split_with_separator(s: String, separator_chars: String ) -> Vec<String> {
+pub fn split_with_separator(s: &String, separator_chars: String) -> Vec<String> {
     s.split(&separator_chars).map(|s| s.to_string()).collect()
 }
 
@@ -73,24 +73,33 @@ mod tests {
 
     #[test]
     fn test_rotate() {
-        assert_eq!(rotate("abcdefg", 0), "abcdefg");
-        assert_eq!(rotate("abcdefg", 2), "fgabcde");
-        assert_eq!(rotate("abcdefg", -2), "cdefgab");
-        assert_eq!(rotate("abcdefg", 7), "abcdefg");
-        assert_eq!(rotate("abcdefg", -7), "abcdefg");
+        assert_eq!(rotate(&"abcdefg", 0), "abcdefg");
+        assert_eq!(rotate(&"abcdefg", 2), "fgabcde");
+        assert_eq!(rotate(&"abcdefg", -2), "cdefgab");
+        assert_eq!(rotate(&"abcdefg", 7), "abcdefg");
+        assert_eq!(rotate(&"abcdefg", -7), "abcdefg");
     }
 
     #[test]
     fn test_split() {
-        assert_eq!(split("abc def".to_string()), vec!["abc", "def"]);
-        assert_eq!(split("abc  def".to_string()), vec!["abc", "def"]);
-        assert_eq!(split(" abc ".to_string()), vec!["abc"]);
+        assert_eq!(split(&"abc def".to_string()), vec!["abc", "def"]);
+        assert_eq!(split(&"abc  def".to_string()), vec!["abc", "def"]);
+        assert_eq!(split(&" abc ".to_string()), vec!["abc"]);
     }
 
     #[test]
     fn test_split_with_separator() {
-        assert_eq!(split_with_separator("abc,def".to_string(), ",".to_string()), vec!["abc", "def"]);
-        assert_eq!(split_with_separator("abc.def".to_string(), ".".to_string()), vec!["abc", "def"]);
-        assert_eq!(split_with_separator("ab:cd:ef".to_string(), ":".to_string()), vec!["ab", "cd", "ef"]);
+        assert_eq!(
+            split_with_separator(&"abc,def".to_string(), ",".to_string()),
+            vec!["abc", "def"]
+        );
+        assert_eq!(
+            split_with_separator(&"abc.def".to_string(), ".".to_string()),
+            vec!["abc", "def"]
+        );
+        assert_eq!(
+            split_with_separator(&"ab:cd:ef".to_string(), ":".to_string()),
+            vec!["ab", "cd", "ef"]
+        );
     }
 }

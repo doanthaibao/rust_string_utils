@@ -7,7 +7,7 @@
 /// # Returns
 ///
 /// * `true` if the string is empty, otherwise `false`.
-pub fn is_empty(str: String) -> bool {
+pub fn is_empty(str: &String) -> bool {
     str.is_empty()
 }
 
@@ -16,7 +16,7 @@ mod tests {
     use crate::is_empty;
     #[test]
     fn should_is_empty() {
-        let result = is_empty(String::from(""));
+        let result = is_empty(&String::from(""));
         assert_eq!(result, true);
     }
 }

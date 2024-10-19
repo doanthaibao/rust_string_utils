@@ -14,24 +14,23 @@
 ///
 /// ```
 ///  use rust_string_utils::replace_chars;
-/// let result = replace_chars(String::from("hello world"), 'o', 'a');
+/// let result = replace_chars(&String::from("hello world"), 'o', 'a');
 /// assert_eq!(result, "hella warld");
 /// ```
-pub fn replace_chars(text: String, search_char: char, replacement: char) -> String {
+pub fn replace_chars(text: &String, search_char: char, replacement: char) -> String {
     text.chars()
         .map(|c| if c == search_char { replacement } else { c })
         .collect()
 }
-
 
 #[cfg(test)]
 mod tests {
     use crate::replace_chars;
     #[test]
     fn should_replace_chars() {
-        let result = replace_chars(String::from("abcdef"), 'a', 'z');
+        let result = replace_chars(&String::from("abcdef"), 'a', 'z');
         assert_eq!("zbcdef", result);
-        let result2 = replace_chars(String::from("aba"), 'a', 'z');
+        let result2 = replace_chars(&String::from("aba"), 'a', 'z');
         assert_eq!("zbz", result2);
     }
 }

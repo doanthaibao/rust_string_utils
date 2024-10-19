@@ -17,7 +17,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.11"
+rust_string_utils = "0.1.12"
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ Here are some examples of how to use the functions provided by this library:
 ```rust
 use rust_string_utils::is_empty;
 
-let result = is_empty(String::from(""));
+let result = is_empty(&String::from(""));
 assert_eq!(result, true);
 ```
 
@@ -38,7 +38,7 @@ assert_eq!(result, true);
 ```rust
 use rust_string_utils::is_blank;
 
-let result = is_blank(String::from("   "));
+let result = is_blank(&String::from("   "));
 assert_eq!(result, true);
 ```
 
@@ -47,7 +47,7 @@ assert_eq!(result, true);
 ```rust
 use rust_string_utils::reverse;
 
-let result = reverse(String::from("abcde"));
+let result = reverse(&String::from("abcde"));
 assert_eq!("edcba", result);
 ```
 
@@ -56,7 +56,7 @@ assert_eq!("edcba", result);
 ```rust
 use rust_string_utils::start_with;
 
-let result = start_with(String::from("abcde"), String::from("a"));
+let result = start_with(&String::from("abcde"), &String::from("a"));
 assert_eq!(true, result);
 ```
 
@@ -64,7 +64,7 @@ assert_eq!(true, result);
 ```rust
 use your_crate::end_with;
 
-let result = end_with("abcde".to_string(), "e".to_string());
+let result = end_with(&"abcde".to_string(), &"e".to_string());
 assert_eq!(result, true);
 ```
 
@@ -79,13 +79,13 @@ assert_eq!("a,b,c", result);
 
 ### Replace a string in a string
 ```rust
-let result = replace(String::from("hello world"), String::from("world"), String::from("Rust"));
+let result = replace(&String::from("hello world"), &String::from("world"), &String::from("Rust"));
 assert_eq!(result, "hello Rust");
 ```
 
 ### Replace a character in a string
 ```rust
-let result = replace_char(String::from("hello world"), 'o', 'O');
+let result = replace_char(&String::from("hello world"), 'o', 'O');
 assert_eq!(result, "hellO wOrld");
 ```
 
@@ -103,12 +103,12 @@ assert_eq!("abc", result);
 
 ### Swap case of a string
 ```rust
-let result = swap_case(String::from("Hello World"));
+let result = swap_case(&String::from("Hello World"));
 assert_eq!("hELLO wORLD", result);
 ```
 ### Convert a timestamp to a human-readable date
 ```rust
-let formatted_date = timestamp_to_string(1618033988000, "%Y-%m-%d %H:%M:%S");
+let formatted_date = timestamp_to_string(1618033988000, &"%Y-%m-%d %H:%M:%S".to_string()());
 assert_eq!(formatted_date, "2021-04-10 05:53:08");
 ```
 ### Convert a byte array to string
@@ -129,7 +129,7 @@ assert_eq!(result, "fgabcde");
 ```rust
 use rust_string_utils::split;
 
-let result = split("abc def");
+let result = split(&"abc def".to_string());
 assert_eq!(result, vec!["abc", "def"]);
 ```
 
@@ -138,7 +138,7 @@ assert_eq!(result, vec!["abc", "def"]);
 ```rust
 use rust_string_utils::split_with_separator;
 
-let result = split_with_separator("abc,def".to_string(), ",".to_string());
+let result = split_with_separator(&"abc,def".to_string(), &",".to_string());
 assert_eq!(result, vec!["abc", "def"]);
 ```
 
@@ -147,14 +147,14 @@ assert_eq!(result, vec!["abc", "def"]);
 ```rust
 use rust_string_utils::compare;
 
-let result = compare("abc".to_string(), "abc".to_string());
+let result = compare(&"abc".to_string(), &"abc".to_string());
 assert_eq!(result, 0);
 ```
 ### Compare two strings lexicographically, ignoring case differences
 ```rust
 use rust_string_utils::compare_ignore_case;
 
-let result = compare_ignore_case("abc".to_string(), "Abc".to_string());
+let result = compare_ignore_case(&"abc".to_string(), &"Abc".to_string());
 assert_eq!(result, 0);
 ```
 
@@ -163,41 +163,41 @@ assert_eq!(result, 0);
 ```rust
 use your_crate::equals;
 
-let result = equals("hello".to_string(), "hello".to_string());
+let result = equals(&"hello".to_string(), &"hello".to_string());
 assert_eq!(result, true);
 ```
 ### Compares two strings for equality, ignoring case.
 ```rust
 use your_crate::equals_ignore_case;
 
-let result = equals_ignore_case("Hello".to_string(), "hello".to_string());
+let result = equals_ignore_case(&"Hello".to_string(), &"hello".to_string());
 assert_eq!(result, true);
 ```
 ### Finds the index of the first occurrence of the specified substring.
 ```rust
 use your_crate::index_of;
-let index = index_of("hello".to_string(), "l".to_string());
+let index = index_of(&"hello".to_string(), &"l".to_string());
 assert_eq!(index, 2);
 ```
 ### Finds the index of the first occurrence of the specified substring starting from a given index.
 ```rust
 use your_crate::index_of_from;
 
-let index = index_of_from("hello".to_string(), "l".to_string(), 3);
+let index = index_of_from(&"hello".to_string(), &"l".to_string(), 3);
 assert_eq!(index, 3);
 ```
 ### Finds the index of the last occurrence of the specified substring.
 ```rust
 use your_crate::last_index_of;
 
-let index = last_index_of("hello".to_string(), "l".to_string());
+let index = last_index_of(&"hello".to_string(), &"l".to_string());
 assert_eq!(index, 3);
 ```
 ### Overlays part of a string with another string
 
 ```rust
 use rust_string_utils::overlay;
-let result = overlay("abcdef".to_string(), "zzzz".to_string(), 2, 4);
+let result = overlay( & "abcdef".to_string(), & "zzzz".to_string(), 2, 4);
 assert_eq!(result, "abzzzzef");
 ```
 ## License

@@ -13,10 +13,10 @@
 ///
 /// ```
 /// use rust_string_utils::count_matches;
-/// let count = count_matches(String::from("hello world"), 'o');
+/// let count = count_matches(&String::from("hello world"), 'o');
 /// assert_eq!(count, 2);
 /// ```
-pub fn count_matches(text: String, search_char: char) -> usize {
+pub fn count_matches(text: &String, search_char: char) -> usize {
     text.chars().filter(|&c| c == search_char).count()
 }
 
@@ -25,9 +25,9 @@ mod tests {
     use crate::count_matches;
     #[test]
     fn should_count_matches() {
-        let result = count_matches(String::from("hello"), 'o');
+        let result = count_matches(&String::from("hello"), 'o');
         assert_eq!(1, result);
-        let result2 = count_matches(String::from("hello world world"), 'o');
+        let result2 = count_matches(&String::from("hello world world"), 'o');
         assert_eq!(3, result2);
     }
 }

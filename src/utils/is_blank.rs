@@ -7,7 +7,7 @@
 /// # Returns
 ///
 /// * `true` if the string is blank, otherwise `false`.
-pub fn is_blank(str: String) -> bool {
+pub fn is_blank(str: &String) -> bool {
     str.trim().is_empty()
 }
 
@@ -16,9 +16,9 @@ mod tests {
     use crate::is_blank;
     #[test]
     fn should_is_blank() {
-        let result = is_blank(String::from("   "));
+        let result = is_blank(&String::from("   "));
         assert_eq!(result, true);
-        let result2 = is_blank(String::from(""));
+        let result2 = is_blank(&String::from(""));
         assert_eq!(result2, true);
     }
 }
