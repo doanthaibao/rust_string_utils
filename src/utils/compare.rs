@@ -16,10 +16,10 @@
 ///
 /// ```
 /// use rust_string_utils::compare;
-/// let result = compare("abc".to_string(), "abc".to_string());
+/// let result = compare(&"abc".to_string(), &"abc".to_string());
 /// assert_eq!(result, 0);
 /// ```
-pub fn compare(s1: String, s2: String) -> i32 {
+pub fn compare(s1: &String, s2: &String) -> i32 {
     s1.cmp(&s2) as i32
 }
 
@@ -41,13 +41,12 @@ pub fn compare(s1: String, s2: String) -> i32 {
 ///
 /// ```
 /// use rust_string_utils::compare_ignore_case;
-/// let result = compare_ignore_case("abc".to_string(), "Abc".to_string());
+/// let result = compare_ignore_case(&"abc".to_string(), &"Abc".to_string());
 /// assert_eq!(result, 0);
 /// ```
-pub fn compare_ignore_case(s1: String, s2: String) -> i32 {
+pub fn compare_ignore_case(s1: &String, s2: &String) -> i32 {
     s1.to_lowercase().cmp(&s2.to_lowercase()) as i32
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -55,17 +54,28 @@ mod tests {
 
     #[test]
     fn test_compare() {
-        assert_eq!(0, compare("abc".to_string(), "abc".to_string()));
-        assert_eq!(compare("abc".to_string(), "Abc".to_string()) > 0, true);
-        assert_eq!(compare("Abc".to_string(), "abc".to_string()) > 0, false);
+        assert_eq!(0, compare(&"abc".to_string(), &"abc".to_string()));
+        assert_eq!(compare(&"abc".to_string(), &"Abc".to_string()) > 0, true);
+        assert_eq!(compare(&"Abc".to_string(), &"abc".to_string()) > 0, false);
     }
-
 
     #[test]
     fn test_compare_ignore_case() {
-        assert_eq!(0, compare_ignore_case("abc".to_string(), "abc".to_string()));
-        assert_eq!(compare_ignore_case("abc".to_string(), "Abc".to_string()) > 0, false);
-        assert_eq!(compare_ignore_case("Abc".to_string(), "abc".to_string()) < 0, false);
-        assert_eq!(0, compare_ignore_case("abc".to_string(), "Abc".to_string()));
+        assert_eq!(
+            0,
+            compare_ignore_case(&"abc".to_string(), &"abc".to_string())
+        );
+        assert_eq!(
+            compare_ignore_case(&"abc".to_string(), &"Abc".to_string()) > 0,
+            false
+        );
+        assert_eq!(
+            compare_ignore_case(&"Abc".to_string(), &"abc".to_string()) < 0,
+            false
+        );
+        assert_eq!(
+            0,
+            compare_ignore_case(&"abc".to_string(), &"Abc".to_string())
+        );
     }
 }

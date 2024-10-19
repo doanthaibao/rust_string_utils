@@ -12,12 +12,12 @@
 ///
 /// ```
 /// use rust_string_utils::trip;
-/// let result = trip(String::from("a b c"));
+/// let result = trip(&String::from("a b c"));
 /// assert_eq!(result, "abc");
-/// let result2 = trip(String::from(" a     "));
+/// let result2 = trip(&String::from(" a     "));
 /// assert_eq!(result2, "a");
 /// ```
-pub fn trip(str: String) -> String {
+pub fn trip(str: &String) -> String {
     str.chars().filter(|&c| c != ' ').collect()
 }
 
@@ -27,9 +27,9 @@ mod tests {
 
     #[test]
     fn should_trip() {
-        let result = trip(String::from("a b c"));
+        let result = trip(&String::from("a b c"));
         assert_eq!("abc", result);
-        let result2 = trip(String::from(" a     "));
+        let result2 = trip(&String::from(" a     "));
         assert_eq!("a", result2);
     }
 }

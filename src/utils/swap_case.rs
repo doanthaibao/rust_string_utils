@@ -14,14 +14,14 @@
 /// ```
 ///  use rust_string_utils::swap_case;
 ///
-/// let result = swap_case("Hello World!");
-/// assert_eq!(result, "hELLO wORLD!");
-/// let result2 = swap_case("12345");
+/// let result = swap_case(&String::from("Hello World!"));
+/// assert_eq!(result, String::from("hELLO wORLD!"));
+/// let result2 = swap_case(&String::from("12345"));
 /// assert_eq!(result2, "12345");
-/// let result3 = swap_case("1a2b3c4d5e");
+/// let result3 = swap_case(&String::from("1a2b3c4d5e"));
 /// assert_eq!(result3, "1A2B3C4D5E");
 /// ```
-pub fn swap_case(s: &str) -> String {
+pub fn swap_case(s: &String) -> String {
     s.chars()
         .map(|c| {
             if c.is_ascii_uppercase() {
@@ -38,8 +38,8 @@ mod tests {
 
     #[test]
     fn test_swap_case() {
-        assert_eq!(swap_case("Hello World!"), "hELLO wORLD!");
-        assert_eq!(swap_case("12345"), "12345");
-        assert_eq!(swap_case("1a2b3c4d5e"), "1A2B3C4D5E");
+        assert_eq!(swap_case(&String::from("Hello World!")), "hELLO wORLD!");
+        assert_eq!(swap_case(&String::from("12345")), "12345");
+        assert_eq!(swap_case(&String::from("1a2b3c4d5e")), "1A2B3C4D5E");
     }
 }
