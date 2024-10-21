@@ -17,7 +17,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.12"
+rust_string_utils = "0.1.14"
 ```
 
 ## Usage
@@ -200,6 +200,28 @@ use rust_string_utils::overlay;
 let result = overlay( & "abcdef".to_string(), & "zzzz".to_string(), 2, 4);
 assert_eq!(result, "abzzzzef");
 ```
+### Removes all occurrences of the specified substring from the given string
+```rust
+use rust_string_utils::remove;
+
+let result = remove(&"abcdef".to_string(), &"c".to_string());
+assert_eq!(result, "abdef");
+```
+### Removes all whitespace characters from the given string
+```rust
+use rust_string_utils::delete_white_space;
+
+let result = delete_white_space(&"a b c".to_string());
+assert_eq!(result, "abc");
+```
+### Removes all occurrences of the specified substring from the given string, ignoring case
+```rust
+use rust_string_utils::remove_ignore_case;
+
+let result = remove_ignore_case(&"AbcDef".to_string(), &"c".to_string());
+assert_eq!(result, "abdef");
+```
+
 ## License
 
 This project is licensed under either of
