@@ -16,6 +16,7 @@ pub mod utils {
     pub mod swap_case;
     pub mod timestamp_to_string;
     pub mod trip;
+    pub mod remove_delete;
 }
 
 pub use utils::byte_array_to_string::byte_array_to_string;
@@ -41,3 +42,6 @@ pub use utils::start_with::start_with;
 pub use utils::swap_case::swap_case;
 pub use utils::timestamp_to_string::timestamp_to_string;
 pub use utils::trip::trip;
+pub use utils::remove_delete::remove;
+pub use utils::remove_delete::delete_white_space;
+pub use utils::remove_delete::remove_ignore_case;
