@@ -5,6 +5,7 @@
 
 [![Rust](https://github.com/doanthaibao/rust_string_utils/actions/workflows/rust.yml/badge.svg)](https://github.com/doanthaibao/rust_string_utils/actions/workflows/rust.yml)
 [![cov](https://github.com/doanthaibao/rust_string_utils/badges/coverage.svg)](https://github.com/doanthaibao/rust_string_utils/actions)
+[![codecov](https://codecov.io/gh/doanthaibao/your-repo/rust_string_utils/master/graph/badge.svg)](https://codecov.io/gh/doanthaibao/rust_string_utils)
 [![crate.io downloads](https://img.shields.io/crates/d/rust_string_utils)](https://crates.io/crates/rust_string_utils)
 [![crate.io version](https://img.shields.io/crates/v/rust_string_utils)](https://crates.io/crates/rust_string_utils)
 [![docs](https://docs.rs/rust_string_utils/badge.svg)](https://docs.rs/rust_string_utils)
