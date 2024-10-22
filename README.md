@@ -16,7 +16,10 @@
 [GitHub Repository](https://github.com/doanthaibao/rust_string_utils)
 
 ## Crates.io
-[https://crates.io/crates/rust_string_utils](https://crates.io/crates/rust_string_utils)
+[Rust_String_Utils](https://crates.io/crates/rust_string_utils)
+
+## Documentation
+[Documentation](https://docs.rs/rust_string_utils/latest/rust_string_utils)
 
 ## Installation
 
@@ -24,209 +27,41 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.14"
+rust_string_utils = "0.1.15"
 ```
 
-## Usage
-
-Here are some examples of how to use the functions provided by this library:
-
-### Check if a string is empty
+## List of methods
 
 ```rust
-use rust_string_utils::is_empty;
 
-let result = is_empty(&String::from(""));
-assert_eq!(result, true);
-```
+rust_string_utils::byte_array_to_string;
+rust_string_utils::compare;
+rust_string_utils::compare_ignore_case;
+rust_string_utils::count_matches;
+rust_string_utils::equals;
+rust_string_utils::index_of;
+rust_string_utils::index_of_from;
+rust_string_utils::last_index_of;
+rust_string_utils::is_blank;
+rust_string_utils::is_empty;
+rust_string_utils::join_char;
+rust_string_utils::overlay;
+rust_string_utils::replace;
+rust_string_utils::replace_chars;
+rust_string_utils::reverse;
+rust_string_utils::rotate;
+rust_string_utils::split;
+rust_string_utils::split_with_separator;
+rust_string_utils::end_with;
+rust_string_utils::start_with;
+rust_string_utils::swap_case;
+rust_string_utils::timestamp_to_string;
+rust_string_utils::trip;
+rust_string_utils::remove;
+rust_string_utils::delete_white_space;
+rust_string_utils::remove_ignore_case;
 
-### Check if a string is blank
 
-```rust
-use rust_string_utils::is_blank;
-
-let result = is_blank(&String::from("   "));
-assert_eq!(result, true);
-```
-
-### Reverse a string
-
-```rust
-use rust_string_utils::reverse;
-
-let result = reverse(&String::from("abcde"));
-assert_eq!("edcba", result);
-```
-
-### Check if a string starts with a prefix
-
-```rust
-use rust_string_utils::start_with;
-
-let result = start_with(&String::from("abcde"), &String::from("a"));
-assert_eq!(true, result);
-```
-
-### Checks if the given string ends with the specified suffix.
-```rust
-use your_crate::end_with;
-
-let result = end_with(&"abcde".to_string(), &"e".to_string());
-assert_eq!(result, true);
-```
-
-### Join characters with a delimiter
-
-```rust
-use rust_string_utils::join_char;
-
-let result = join_char(vec!['a', 'b', 'c'], ',');
-assert_eq!("a,b,c", result);
-```
-
-### Replace a string in a string
-```rust
-let result = replace(&String::from("hello world"), &String::from("world"), &String::from("Rust"));
-assert_eq!(result, "hello Rust");
-```
-
-### Replace a character in a string
-```rust
-let result = replace_char(&String::from("hello world"), 'o', 'O');
-assert_eq!(result, "hellO wOrld");
-```
-
-### Count the number of occurrences of a character in a string
-```rust
-let count = count_matches(String::from("hello world"), 'o');
-assert_eq!(count, 2);
-```
-
-### Triple a string
-```rust
-let result = trip(String::from("a b c "));
-assert_eq!("abc", result);
-```
-
-### Swap case of a string
-```rust
-let result = swap_case(&String::from("Hello World"));
-assert_eq!("hELLO wORLD", result);
-```
-### Convert a timestamp to a human-readable date
-```rust
-let formatted_date = timestamp_to_string(1618033988000, &"%Y-%m-%d %H:%M:%S".to_string()());
-assert_eq!(formatted_date, "2021-04-10 05:53:08");
-```
-### Convert a byte array to string
-```rust
-let bytes = vec![104, 101, 108, 108, 111];
-let result = bytes_to_string(bytes);
-assert_eq!(result, "hello");
-```
-### Rotate characters in a string
-
-```rust
-use rust_string_utils::rotate;
-
-let result = rotate("abcdefg", 2);
-assert_eq!(result, "fgabcde");
-```
-### Split a string by whitespace
-```rust
-use rust_string_utils::split;
-
-let result = split(&"abc def".to_string());
-assert_eq!(result, vec!["abc", "def"]);
-```
-
-### Split a string by specified separator characters
-
-```rust
-use rust_string_utils::split_with_separator;
-
-let result = split_with_separator(&"abc,def".to_string(), &",".to_string());
-assert_eq!(result, vec!["abc", "def"]);
-```
-
-### Compare two strings lexicographically
-
-```rust
-use rust_string_utils::compare;
-
-let result = compare(&"abc".to_string(), &"abc".to_string());
-assert_eq!(result, 0);
-```
-### Compare two strings lexicographically, ignoring case differences
-```rust
-use rust_string_utils::compare_ignore_case;
-
-let result = compare_ignore_case(&"abc".to_string(), &"Abc".to_string());
-assert_eq!(result, 0);
-```
-
-### Compares two strings for equality.
-
-```rust
-use your_crate::equals;
-
-let result = equals(&"hello".to_string(), &"hello".to_string());
-assert_eq!(result, true);
-```
-### Compares two strings for equality, ignoring case.
-```rust
-use your_crate::equals_ignore_case;
-
-let result = equals_ignore_case(&"Hello".to_string(), &"hello".to_string());
-assert_eq!(result, true);
-```
-### Finds the index of the first occurrence of the specified substring.
-```rust
-use your_crate::index_of;
-let index = index_of(&"hello".to_string(), &"l".to_string());
-assert_eq!(index, 2);
-```
-### Finds the index of the first occurrence of the specified substring starting from a given index.
-```rust
-use your_crate::index_of_from;
-
-let index = index_of_from(&"hello".to_string(), &"l".to_string(), 3);
-assert_eq!(index, 3);
-```
-### Finds the index of the last occurrence of the specified substring.
-```rust
-use your_crate::last_index_of;
-
-let index = last_index_of(&"hello".to_string(), &"l".to_string());
-assert_eq!(index, 3);
-```
-### Overlays part of a string with another string
-
-```rust
-use rust_string_utils::overlay;
-let result = overlay( & "abcdef".to_string(), & "zzzz".to_string(), 2, 4);
-assert_eq!(result, "abzzzzef");
-```
-### Removes all occurrences of the specified substring from the given string
-```rust
-use rust_string_utils::remove;
-
-let result = remove(&"abcdef".to_string(), &"c".to_string());
-assert_eq!(result, "abdef");
-```
-### Removes all whitespace characters from the given string
-```rust
-use rust_string_utils::delete_white_space;
-
-let result = delete_white_space(&"a b c".to_string());
-assert_eq!(result, "abc");
-```
-### Removes all occurrences of the specified substring from the given string, ignoring case
-```rust
-use rust_string_utils::remove_ignore_case;
-
-let result = remove_ignore_case(&"AbcDef".to_string(), &"c".to_string());
-assert_eq!(result, "abdef");
 ```
 
 ## License
