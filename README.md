@@ -27,13 +27,12 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.15"
+rust_string_utils = "0.1.16"
 ```
 
 ## List of methods
 
 ```rust
-
 rust_string_utils::byte_array_to_string;
 rust_string_utils::compare;
 rust_string_utils::compare_ignore_case;
@@ -60,8 +59,9 @@ rust_string_utils::trip;
 rust_string_utils::remove;
 rust_string_utils::delete_white_space;
 rust_string_utils::remove_ignore_case;
-
-
+rust_string_utils::find_range_between_delimiters;
+rust_string_utils::get_text_including_delimiters;
+rust_string_utils::find_range_between_delimiters;
 ```
 
 ## License

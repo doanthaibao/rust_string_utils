@@ -17,6 +17,7 @@ pub mod utils {
     pub mod timestamp_to_string;
     pub mod trip;
     pub mod remove_delete;
+    pub mod find;
 }
 
 pub use utils::byte_array_to_string::byte_array_to_string;
@@ -45,3 +46,6 @@ pub use utils::trip::trip;
 pub use utils::remove_delete::remove;
 pub use utils::remove_delete::delete_white_space;
 pub use utils::remove_delete::remove_ignore_case;
+pub use utils::find::get_text_without_delimiters;
+pub use utils::find::get_text_including_delimiters;
+pub use utils::find::find_range_between_delimiters;
