@@ -16,13 +16,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: rustup component add llvm-tools-preview && cargo install grcov
+        run: |
+          rustup component add llvm-tools-preview && cargo install grcov && sudo apt-get update && sudo apt-get install -y lcov
       - name: Build
         run: cargo build --verbose
       - name: Run tests
         run: cargo test --verbose
       - name: Run coverage
-        run:  grcov . -s . --binary-path ./target/debug/ -t lcov --branch --ignore-not-existing -o lcov.info
+        run: grcov . -s . --binary-path ./target/debug/ -t lcov --branch --ignore-not-existing -o lcov.info
+      - name: Generate HTML report
+        run: genhtml -o coverage lcov.info
+      - name: Check coverage
+        run: |
+          coverage=$(grep -Eo '<td class="coverPerHi">[^<]+' coverage/index.html | sed -E 's/<td class="coverPerHi">//g' | head -n 1 | sed -E 's/&nbsp;%//g')
+          if (( $(echo "$coverage < 100" | bc -l) )); then
+            echo "Code coverage is below 100%: $coverage%"
+            exit 1
+          fi
       - name: Upload coverage report
         uses: codecov/codecov-action@v4
         with:
@@ -37,4 +47,3 @@ jobs:
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
         run: cargo publish --verbose
-

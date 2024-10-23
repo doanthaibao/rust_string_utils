@@ -1,5 +1,6 @@
 # Ignore the target directory
 /target/
+/coverage/
 
 # Ignore Cargo.lock (if you are building a library)
 # Cargo.lock
