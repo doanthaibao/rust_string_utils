@@ -18,6 +18,7 @@ pub mod utils {
     pub mod trip;
     pub mod remove_delete;
     pub mod find;
+    pub mod count;
 }
 
 pub use utils::byte_array_to_string::byte_array_to_string;
@@ -49,3 +50,5 @@ pub use utils::remove_delete::remove_ignore_case;
 pub use utils::find::get_text_without_delimiters;
 pub use utils::find::get_text_including_delimiters;
 pub use utils::find::find_range_between_delimiters;
+pub use utils::count::count_string_bytes;
+pub use utils::count::slice_string_between;
