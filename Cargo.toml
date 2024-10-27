@@ -8,5 +8,6 @@ readme = "README.md"
 homepage = "https://github.com/doanthaibao/rust_string_utils"
 repository = "https://github.com/doanthaibao/rust_string_utils"
 [dependencies]
-chrono = "0.4.38"
 cargo-husky = "1.0"
+chrono = "0.4.38"
+

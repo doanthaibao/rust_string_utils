@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install dependencies
         run: |
-          rustup component add llvm-tools-preview && cargo install grcov && sudo apt-get update && sudo apt-get install -y lcov
+          rustup component add llvm-tools-preview && cargo install grcov && sudo apt-get update && sudo apt-get install -y lcov && sudo apt-get install -y npm && npm install -g semver
       - name: Build
         run: cargo build --verbose
       - name: Run tests
@@ -45,11 +45,16 @@ jobs:
       - name: Check for Cargo.toml version change
         id: cargo_version_change
         run: |
-          if git diff --name-only HEAD~1 HEAD | grep -q 'Cargo.toml'; then
-            echo "version_changed=true" >> $GITHUB_ENV
-          else
-            echo "version_changed=false" >> $GITHUB_ENV
-          fi
+           current_version=$(grep '^version' Cargo.toml | awk -F\" '{print $2}')
+           crate_name=$(grep '^name' Cargo.toml | awk -F\" '{print $2}')
+           latest_version=$(cargo search "$crate_name" | grep "^$crate_name" | awk -F\" '{print $2}')
+           if semver compare "$current_version" "$latest_version" > 0; then
+             echo "Current version ($current_version) is greater than the latest version ($latest_version)."
+             echo "version_changed=true" >> $GITHUB_ENV
+           else
+             echo "Current version ($current_version) is not greater than the latest version ($latest_version)."
+             echo "version_changed=false" >> $GITHUB_ENV
+           fi
       - name: Release to crates
         if: env.version_changed == 'true' && github.ref == 'refs/heads/master' && github.event_name == 'push'
         env:
