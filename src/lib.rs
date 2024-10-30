@@ -19,6 +19,7 @@ pub mod utils {
     pub mod remove_delete;
     pub mod find;
     pub mod count;
+    pub mod chomp_chop;
 }
 
 pub use utils::byte_array_to_string::byte_array_to_string;
@@ -52,3 +53,5 @@ pub use utils::find::get_text_including_delimiters;
 pub use utils::find::find_range_between_delimiters;
 pub use utils::count::count_string_bytes;
 pub use utils::count::slice_string_between;
+pub use utils::chomp_chop::chomp;
+pub use utils::chomp_chop::chop;
