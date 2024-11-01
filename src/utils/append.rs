@@ -61,31 +61,15 @@ pub fn prepend_if_missing_ignore_case(
     prefix: &String,
     prefixes: &[&String],
 ) -> String {
-    if prefix.is_empty() {
-        return str.to_string();
-    }
-
-    let lower_str = str.to_lowercase();
-    let lower_prefix = prefix.to_lowercase();
-    let lower_prefixes: Vec<String> = prefixes
-        .iter()
-        .filter_map(|&p| {
-            if p.is_empty() {
-                None
-            } else {
-                Some(p.to_lowercase())
-            }
-        })
-        .collect();
-
-    if lower_str.starts_with(&lower_prefix)
-        || lower_prefixes.iter().any(|p| lower_str.starts_with(p))
+    if str.to_lowercase().starts_with(&prefix.to_lowercase())
+        || prefixes
+            .iter()
+            .any(|&p| str.to_lowercase().starts_with(&p.to_lowercase()))
     {
         str.to_string()
     } else {
         format!("{}{}", prefix, str)
     }
-
 }
 
 /// Appends a suffix to a string if it is not already present, considering a list of possible suffixes.
@@ -151,24 +135,11 @@ pub fn append_if_missing_ignore_case(
     suffix: &String,
     suffixes: &[&String],
 ) -> String {
-    if suffix.is_empty() {
-        return str.to_string();
-    }
-
-    let lower_str = str.to_lowercase();
-    let lower_suffix = suffix.to_lowercase();
-    let lower_suffixes: Vec<String> = suffixes
-        .iter()
-        .filter_map(|&s| {
-            if s.is_empty() {
-                None
-            } else {
-                Some(s.to_lowercase())
-            }
-        })
-        .collect();
-
-    if lower_str.ends_with(&lower_suffix) || lower_suffixes.iter().any(|s| lower_str.ends_with(s)) {
+    if str.to_lowercase().ends_with(&suffix.to_lowercase())
+        || suffixes
+            .iter()
+            .any(|&s| str.to_lowercase().ends_with(&s.to_lowercase()))
+    {
         str.to_string()
     } else {
         format!("{}{}", str, suffix)
@@ -293,14 +264,14 @@ mod tests {
             ),
             "MNOabc"
         );
-        // assert_eq!(
-        //     prepend_if_missing_ignore_case(
-        //         &"abc".to_string(),
-        //         &"xyz".to_string(),
-        //         &[&"".to_string()]
-        //     ),
-        //     "abc"
-        // );
+        assert_eq!(
+            prepend_if_missing_ignore_case(
+                &"abc".to_string(),
+                &"xyz".to_string(),
+                &[&"".to_string()]
+            ),
+            "abc"
+        );
     }
 
     #[test]
@@ -421,14 +392,14 @@ mod tests {
             append_if_missing_ignore_case(&"".to_string(), &"xyz".to_string(), &[]),
             "xyz"
         );
-        // assert_eq!(
-        //     append_if_missing_ignore_case(
-        //         &"abc".to_string(),
-        //         &"xyz".to_string(),
-        //         &[&"".to_string()]
-        //     ),
-        //     "abc"
-        // );
+        assert_eq!(
+            append_if_missing_ignore_case(
+                &"abc".to_string(),
+                &"xyz".to_string(),
+                &[&"".to_string()]
+            ),
+            "abc"
+        );
         assert_eq!(
             append_if_missing_ignore_case(
                 &"abc".to_string(),
