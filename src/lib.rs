@@ -20,6 +20,7 @@ pub mod utils {
     pub mod find;
     pub mod count;
     pub mod chomp_chop;
+    pub mod append;
 }
 
 pub use utils::byte_array_to_string::byte_array_to_string;
@@ -55,3 +56,7 @@ pub use utils::count::count_string_bytes;
 pub use utils::count::slice_string_between;
 pub use utils::chomp_chop::chomp;
 pub use utils::chomp_chop::chop;
+pub use utils::append::append_if_missing_ignore_case;
+pub use utils::append::append_if_missing;
+pub use utils::append::prepend_if_missing_ignore_case;
+pub use utils::append::prepend_if_missing;
