@@ -27,7 +27,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-rust_string_utils = "0.1.19"
+rust_string_utils = "0.1.20"
 ```
 
 ## List of methods
@@ -70,6 +70,12 @@ rust_string_utils::append_if_missing_ignore_case;
 rust_string_utils::append_if_missing;
 rust_string_utils::prepend_if_missing_ignore_case;
 rust_string_utils::prepend_if_missing;
+rust_string_utils::is_alpha;
+rust_string_utils::is_alphanumeric;
+rust_string_utils::is_alphanumeric_space;
+rust_string_utils::is_alpha_space;
+rust_string_utils::is_ascii_printable;
+
 ```
 
 ## License
