@@ -21,6 +21,7 @@ pub mod utils {
     pub mod count;
     pub mod chomp_chop;
     pub mod append;
+    pub mod number;
 }
 
 pub use utils::byte_array_to_string::byte_array_to_string;
@@ -60,3 +61,9 @@ pub use utils::append::append_if_missing_ignore_case;
 pub use utils::append::append_if_missing;
 pub use utils::append::prepend_if_missing_ignore_case;
 pub use utils::append::prepend_if_missing;
+pub use utils::number::is_alpha;
+pub use utils::number::is_alphanumeric;
+pub use utils::number::is_alphanumeric_space;
+pub use utils::number::is_alpha_space;
+pub use utils::number::is_ascii_printable;
+
